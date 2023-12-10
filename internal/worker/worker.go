@@ -65,7 +65,6 @@ func RunCondition(bin string, condition typings.Task) typings.Result {
 		Params:  parser.RetainArgs(condition.Name, condition.Params),
 	})
 
-	fmt.Println(result.Details)
 	outcome := isPositiveResult(result.Details)
 	if outcome {
 		return Run(typings.RunTaskInput{
