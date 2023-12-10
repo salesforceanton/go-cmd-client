@@ -12,10 +12,18 @@ type Result struct {
 	Details string `json:"details"`
 }
 
-type Task struct {
+type BaseTask struct {
 	Name   string            `json:"name"`
 	Params map[string]string `json:"params"`
 	Result Result            `json:"result"`
+}
+
+type Task struct {
+	Name            string            `json:"name"`
+	Params          map[string]string `json:"params"`
+	Result          Result            `json:"result"`
+	PositiveOutcome *BaseTask         `json:"positiveOutcome"`
+	NegativeOutcome *BaseTask         `json:"negativeOutcome"`
 }
 
 type RunTaskInput struct {

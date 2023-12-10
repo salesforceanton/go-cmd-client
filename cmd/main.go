@@ -40,13 +40,21 @@ func main() {
 
 	for i, task := range parser.TaskList {
 		ctx, _ := context.WithTimeout(context.Background(), cfg.TaskTimeout)
-		result := worker.RunWithContext(
-			ctx,
-			typings.RunTaskInput{
-				Bin:     cfg.BinPth,
-				Command: task.Name,
-				Params:  parser.RetainArgs(task),
-			})
+
+		var result typings.Result
+
+		if task.PositiveOutcome != nil && task.NegativeOutcome != nil {
+			result = worker.RunConditionWithContext(ctx, cfg.BinPth, task)
+		} else {
+			result = worker.RunWithContext(
+				ctx,
+				typings.RunTaskInput{
+					Bin:     cfg.BinPth,
+					Command: task.Name,
+					Params:  parser.RetainArgs(task.Name, task.Params),
+				})
+		}
+
 		parser.SetResult(i, result)
 	}
 

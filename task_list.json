@@ -35,5 +35,26 @@
             "-Path": "./valera.txt"
         },
         "result": {}
+    },
+    {
+        "name": "Test-Path",
+        "params": {
+            "-Path": "./valera.txt"
+        },
+        "result": {},
+        "positiveOutcome": {
+            "name": "Write-Output",
+            "params": {
+                "-InputObject": "'File is exist!'"
+            },
+            "result": {}
+        },
+        "negativeOutcome": {
+            "name": "New-Item",
+            "params": {
+                "-Path": "./valera.txt"
+            },
+            "result": {}
+        }
     }
 ]

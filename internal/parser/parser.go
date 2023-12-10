@@ -43,11 +43,11 @@ func Save() error {
 	return nil
 }
 
-func RetainArgs(task typings.Task) []string {
+func RetainArgs(command string, params map[string]string) []string {
 	var result []string
-	result = append(result, task.Name)
+	result = append(result, command)
 
-	for flag, value := range task.Params {
+	for flag, value := range params {
 		result = append(result, flag)
 		result = append(result, value)
 	}
