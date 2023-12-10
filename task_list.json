@@ -1,0 +1,39 @@
+[
+    {
+        "name": "New-Item",
+        "params": {
+            "-Path": "./filename.txt"
+        },
+        "result": {}
+    },
+    {
+        "name": "Rename-Item",
+        "params": {
+            "-Path": "./filename.txt",
+            "-NewName": "valera.txt"
+        },
+        "result": {}
+    },
+    {
+        "name": "Get-ChildItem",
+        "params": {
+            "-Path": "./valera.txt | select CreationTime"
+        },
+        "result": {}
+    },
+    {
+        "name": "Add-Content",
+        "params": {
+            "-Path": "./valera.txt",
+            "-Value": "'Valera the Best!'"
+        },
+        "result": {}
+    },
+    {
+        "name": "Remove-Item",
+        "params": {
+            "-Path": "./valera.txt"
+        },
+        "result": {}
+    }
+]

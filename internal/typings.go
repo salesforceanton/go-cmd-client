@@ -13,9 +13,9 @@ type Result struct {
 }
 
 type Task struct {
-	Name   string                 `json:"name"`
-	Params map[string]interface{} `json:"params"`
-	Result Result                 `json:"result"`
+	Name   string            `json:"name"`
+	Params map[string]string `json:"params"`
+	Result Result            `json:"result"`
 }
 
 type RunTaskInput struct {
